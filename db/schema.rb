@@ -14,10 +14,11 @@ ActiveRecord::Schema.define(version: 2019_04_03_184724) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "commntable_id"
+    t.string "commentable_type"
+    t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commntable_id"], name: "index_comments_on_commntable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "images", force: :cascade do |t|
